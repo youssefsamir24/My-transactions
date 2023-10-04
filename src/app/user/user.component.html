@@ -1,0 +1,45 @@
+<div  class="container userPage py-3 mt-2">
+    <div class="user-details d-flex align-items-center justify-content-center">
+        <!-- <i class="fa-regular fa-circle-user user-image p-3"></i> -->
+        <img class="admin-image" src="./assets/images/309447990_5442906352454795_3218027023411647707_n.jpg" alt="" srcset="">
+        <h1 class="p-3">Ahmed Bahnasy</h1>
+    </div>
+    <div class="w-100 px-3">
+      <label for="search">Search for user transaction:</label>
+      <input [(ngModel)]="adminSearch" (keydown)="kobry()" class="w-100 form-control p-1 my-2" placeholder="user name ..." id="search" type="text">
+  </div>
+  <div class="container charts">
+    <app-charts [single]="x"></app-charts>
+  </div>
+    <div class="tableData">
+        <div class="container">
+          <table class="table table-primary table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date</th>
+                <th scope="col">Transaction name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Trasnaction method</th>
+                <th scope="col">Admin name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of adminData|search:adminSearch">
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.name}}</td>
+                <td>{{data.date}}</td>
+                <td>{{data.title}}</td>
+                <td>{{data.price}}</td>
+                <td>{{data.way}}</td>
+                <td>{{data.admin}}</td>
+              </tr>
+
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+</div>

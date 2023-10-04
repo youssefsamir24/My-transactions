@@ -1,0 +1,38 @@
+<section class="input p-3">
+  <div class="container">
+    <div class="ms-auto w-25">
+      <label for="search">Search for transactions:</label>
+      <input [(ngModel)]="searchItem" class="w-100 form-control p-1 my-2" placeholder="transaction name ..." id="search" type="text">
+  </div>
+
+  </div>
+
+</section>
+
+<section class="tableData">
+  <div class="container">
+    <table class="table table-primary table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Transaction name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Trasnaction method</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data|amdinsearch:searchItem">
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.date}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.price}}</td>
+          <td>{{item.way}}</td>
+        </tr>  
+      </tbody>
+    </table>
+  </div>
+</section>
+
